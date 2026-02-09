@@ -17,6 +17,7 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 5. Control Prediction: 최종적으로 Mamba의 출력값은 제어 헤드를 거쳐 조향(Steering), 가속(Accel), 제동(Brake) 등의 물리적 제어 신호로 변환됩니다.
 
 30epoch 결과 (loss:0.437 / val_loss:0.81)
+
 🏁 주차 성공 판정 기준 (Success Metrics)
 
 X축 이격 거리: ± 1.0 m — 주차 칸 진입 깊이(전/후 방향)의 허용 오차

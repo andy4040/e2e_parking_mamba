@@ -30,6 +30,13 @@ Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)�
 
 <img width="776" height="324" alt="image" src="https://github.com/user-attachments/assets/ce9144c7-e88b-4b79-9458-55c2d8440b30" />
 
+데이터셋 다운로드
+https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
+
+last.ckpt 구글 드라이브 다운로드
+
+
+
 References
 
 본 프로젝트는 아래 논문의 연구 성과를 바탕으로 구현 및 개선되었습니다.

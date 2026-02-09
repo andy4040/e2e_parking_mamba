@@ -8,3 +8,7 @@ Key Features
 Mamba Backbone: 시퀀스 데이터 처리에 최적화된 Mamba 블록을 사용하여 장기 의존성(Long-range dependency) 문제를 해결하고 추론 속도를 향상했습니다.
 
 End-to-End Learning: 원시 센서 데이터로부터 제어 값까지 단일 신경망으로 연결하여 복잡한 규칙 기반 시스템 없이 주차 로직을 학습했습니다.
+
+<img width="50" height="239" alt="image" src="https://github.com/user-attachments/assets/1fdd9fdf-9ff5-4994-a6e6-0cd1152a36be" />
+
+

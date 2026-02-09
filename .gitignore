@@ -1,0 +1,10 @@
+/e2e_parking/
+/ckpt/
+/log/
+/eva_result/
+/resource/*.gif
+/resource/*.pdf
+*.ckpt
+*.pth
+__pycache__/
+/carla/

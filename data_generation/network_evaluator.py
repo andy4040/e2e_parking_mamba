@@ -62,7 +62,7 @@ class NetworkEvaluator:
         self._num_frames_nearby_no_goal = 0
         self._num_frames_outbound = 0
         self._num_frames_total = 0
-        self._num_frames_in_goal_needed = 2 * self._frames_per_second         # 2s
+        self._num_frames_in_goal_needed = 1.7 * self._frames_per_second         # 2s
         self._num_frames_nearby_goal_needed = 2 * self._frames_per_second     # 2s
         self._num_frames_nearby_no_goal_needed = 2 * self._frames_per_second  # 2s
         self._num_frames_outbound_needed = 10 * self._frames_per_second       # 10s

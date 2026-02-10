@@ -112,7 +112,7 @@ def main():
         help='number of parking slot task (default: 16')
     argparser.add_argument(
         '--eva_parking_nums',
-        default=5,
+        default=6,
         type=int,
         help='number of parking nums for every slot (default: 6')
     argparser.add_argument(

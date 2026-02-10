@@ -33,7 +33,7 @@ class ParkingModel(nn.Module):
         y_pixel = (w / 2 + target_point[:, 1] / self.cfg.bev_y_bound[2]).unsqueeze(0).T.int()
         target_point = torch.cat([x_pixel, y_pixel], dim=1)
 
-        noise = (torch.rand_like(target_point, dtype=torch.float) * 10 - 5).int()
+        noise = (torch.rand_like(target_point, dtype=torch.float) * 4 - 2).int()
         target_point += noise
 
         for batch in range(b):

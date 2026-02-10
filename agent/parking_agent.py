@@ -434,14 +434,14 @@ class ParkingAgent:
         else:
             self.stop_count = 0.0
 
-        if self.stop_count > 10:  # 1s
+        if self.stop_count > 3:  # 1s
             self.boost = True
 
         if self.boost:
             self.trans_control.throttle = 0.3
             self.boot_step += 1
 
-        if self.boot_step > 10 or self.trans_control.brake > 1e-5:  # 1s
+        if self.boot_step > 3 or self.trans_control.brake > 1e-5:  # 1s
             self.boot_step = 0
             self.boost = False
 

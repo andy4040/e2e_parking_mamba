@@ -18,6 +18,9 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 30epoch 결과 (loss:0.437 / val_loss:0.81)
 
+환경 
+carla:0.9.11
+python: 3.7
 GPU: RTX 2080
 
 🏁 주차 성공 판정 기준 (Success Metrics)

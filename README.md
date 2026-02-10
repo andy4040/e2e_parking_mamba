@@ -1,4 +1,4 @@
-1. 프로젝트 요약
+##1. 프로젝트 요약
 🚗 Mamba 기반 End-to-End 자율 주차 시스템
 CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활용하여 구현한 효율적인 End-to-End 자율 주차 에이전트입니다.
 
@@ -17,12 +17,12 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 5. Control Prediction: 최종적으로 Mamba의 출력값은 제어 헤드를 거쳐 조향(Steering), 가속(Accel), 제동(Brake) 등의 물리적 제어 신호로 변환됩니다.
 
 30epoch 결과 (loss:0.437 / val_loss:0.81)
-2. Requirement
+##2. Requirement
 carla:0.9.11
 python: 3.7
 GPU: RTX 2080
 
-3. 결과
+##3. 결과
 🏁 주차 성공 판정 기준 (Success Metrics)
 
 X축 이격 거리: ± 1.0 m — 주차 칸 진입 깊이(전/후 방향)의 허용 오차
@@ -37,7 +37,7 @@ Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)�
 
 <img width="949" height="399" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />
 
-4. Dataset
+##4. Dataset
 
 https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
 
@@ -46,7 +46,7 @@ pretrained model
 last.ckpt 구글 드라이브 다운로드
 
 
-5. References
+##5. References
 
 본 프로젝트는 아래 논문의 연구 성과를 바탕으로 구현 및 개선되었습니다.
 

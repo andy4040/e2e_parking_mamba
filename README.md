@@ -18,12 +18,16 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 30epoch 결과 (loss:0.437 / val_loss:0.81)
 ## 2. Requirement
-carla:0.9.11
+carla: 0.9.11
+
 python: 3.7
-GPU: RTX 2080
+
 
 ## 3. 결과
-🏁 주차 성공 판정 기준 (Success Metrics)
+
+NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 진행하였다.
+
+🏁 주차 성공 판정 기준 
 
 X축 이격 거리: ± 1.0 m — 주차 칸 진입 깊이(전/후 방향)의 허용 오차
 
@@ -31,11 +35,13 @@ Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)�
 
 방향 오차: ± 10° — 주차 칸과 차량의 수평 정렬 및 평행 상태의 허용 오차
 
+
 <img width="776" height="324" alt="image" src="https://github.com/user-attachments/assets/ce9144c7-e88b-4b79-9458-55c2d8440b30" />
 
 논문
 
 <img width="949" height="399" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />
+
 
 ## 4. Dataset
 

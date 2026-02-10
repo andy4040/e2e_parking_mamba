@@ -32,6 +32,8 @@ Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)�
 방향 오차: ± 10° — 주차 칸과 차량의 수평 정렬 및 평행 상태의 허용 오차
 
 <img width="776" height="324" alt="image" src="https://github.com/user-attachments/assets/ce9144c7-e88b-4b79-9458-55c2d8440b30" />
+논문
+<img width="41" height="41" alt="image" src="https://github.com/user-attachments/assets/310c6337-b68e-4b62-a379-a3a3722d9f4f" />
 
 데이터셋 다운로드
 https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6

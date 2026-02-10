@@ -33,7 +33,8 @@ Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)�
 
 <img width="776" height="324" alt="image" src="https://github.com/user-attachments/assets/ce9144c7-e88b-4b79-9458-55c2d8440b30" />
 논문
-<img width="41" height="41" alt="image" src="https://github.com/user-attachments/assets/310c6337-b68e-4b62-a379-a3a3722d9f4f" />
+<img width="949" height="399" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />
+
 
 데이터셋 다운로드
 https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6

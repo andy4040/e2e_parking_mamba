@@ -29,11 +29,8 @@ NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 �
 
 🏁 주차 성공 판정 기준 
 
-X축 이격 거리: ± 1.0 m — 주차 칸 진입 깊이(전/후 방향)의 허용 오차
 
-Y축 이격 거리: ± 0.6 m — 주차선 사이 중앙 정렬(좌/우 방향)의 허용 오차
-
-방향 오차: ± 10° — 주차 칸과 차량의 수평 정렬 및 평행 상태의 허용 오차
+차량의 중심이 주차 칸의 정중앙으로부터 0.5m 이내에 위치해야 하며, 차체가 목표 방향에서 틀어진 각도 오차가 0.5도 미만이어야 한다.
 
 
 <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/ce9144c7-e88b-4b79-9458-55c2d8440b30" /><img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />

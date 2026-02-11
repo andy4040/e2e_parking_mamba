@@ -6,6 +6,7 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 본 모델은 다중 센서 정보를 통합하여 정밀한 주차 제어를 수행하기 위해 다음과 같은 단계별 구조를 가집니다.
 
+
 1. Multi-View Input (4 Surround Images): 차량 주변을 감시하는 4개의 카메라(전/후/좌/우)로부터 원시 데이터를 입력받습니다.
 
 2. BEV Feature Extraction: 각 카메라의 2D 이미지를 공간 지각력이 극대화된 BEV(Bird's-Eye View) 특징 맵으로 변환합니다. 이는 주차 칸과의 거리 및 정렬 상태를 파악하는 데 핵심적인 역할을 합니다.

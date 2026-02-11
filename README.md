@@ -22,7 +22,8 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 5. Control Prediction: 최종적으로 Mamba의 출력값은 제어 헤드를 거쳐 조향(Steering), 가속(Accel), 제동(Brake) 등의 물리적 제어 신호로 변환됩니다.
 
-<img width="1070" height="434" alt="image" src="https://github.com/user-attachments/assets/e4c831b4-fcc3-44a6-9e13-f5a09a7e8a5d" />
+<img width="1070" height="434" alt="image" src="https://github.com/user-attachments/assets/edd4270a-0489-495e-8905-191d364b240f" />
+
 
 
 ## 2. Requirement

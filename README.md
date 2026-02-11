@@ -27,10 +27,11 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 
 ## 2. Requirement
+```
 carla: 0.9.11
-
+cuda: 11.7
 python: 3.7
-
+```
 
 ## 3. 결과
 

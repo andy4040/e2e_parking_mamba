@@ -12,7 +12,7 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 
 3. Feature Fusion: 추출된 각 뷰의 특징들을 하나의 통합된 벡터 공간으로 융합(Fusion)하여 차량 주변 360도 환경을 단일 지표로 재구성합니다.
 
-### 4. Mamba Sequence Modeling (핵심 메커니즘)
+# 4. Mamba Sequence Modeling (핵심 메커니즘)
 
 트랜스포머가 융합한 특징 시퀀스를 **Mamba(SSM) 블록**에 입력한다. 이 과정에서 **병렬 스캔(Parallel Scan)** 기법을 사용하여 시퀀스 길이에 대해 O(log L)의 복잡도로 고속 병렬 처리를 수행한다.
 

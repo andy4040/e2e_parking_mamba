@@ -23,11 +23,23 @@ CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활�
 5. Control Prediction: 최종적으로 Mamba의 출력값은 제어 헤드를 거쳐 조향(Steering), 가속(Accel), 제동(Brake) 등의 물리적 제어 신호로 변환됩니다.
 
 ```mermaid
-graph LR
-    A[4-View Images] --> B[Transformer Fusion]
-    B -- "Static Spatial Feature" --> C[Mamba Encoder]
-    C -- "Dynamic Context (Parallel Scan)" --> D[Control Head]
-    D --> E[Steer/Accel/Brake]
+graph TD
+    subgraph Perception
+    A[4-View Surround Images] --> B[BEV Feature Extraction]
+    end
+
+    subgraph Hybrid_Core
+    B --> C{Transformer Fusion}
+    C -- "Static Features" --> D[Mamba Encoder]
+    D -- "Parallel Scan O(log L)" --> D
+    end
+
+    subgraph Control
+    D -- "Dynamic Context" --> E[Control Head]
+    E --> F([Steer / Accel / Brake])
+    end
+
+    style D fill:#f96,stroke:#333,stroke-width:2px
 ```
 
 ## 2. Requirement

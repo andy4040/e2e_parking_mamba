@@ -44,13 +44,6 @@ class MambaFeatureFusion(nn.Module):
             
         """
         
-        mamba_out = self.mamba_encoder(fuse_feature)
+        output = self.mamba_encoder(fuse_feature)
 
-        
-        
-        if self.use_residual:
-            output = fuse_feature + mamba_out
-   
-        else:
-            output = self.projection(mamba_out)
         return output

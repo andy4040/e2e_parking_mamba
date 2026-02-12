@@ -56,7 +56,7 @@ python pl_train.py
 
 Dataset
 
-https//pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
+https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
 
 pretrained model
 

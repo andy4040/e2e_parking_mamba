@@ -33,12 +33,7 @@ High-Speed Parallel Processing: 병렬 스캔(Parallel Scan) 기법을 통해 �
 
 ## 3. Setup
 ```
-carla: 0.9.11
-cuda: 11.7
-python: 3.7
-```
-```
-git clone https://github.com/qintonguav/e2e-parking-carla.git
+git clone https://github.com/andy4040/e2e_parking_mamba.git
 cd e2e-parking-carla/
 conda env create -f environment.yml
 conda activate E2EParking
@@ -46,7 +41,7 @@ chmod +x setup_carla.sh
 ./setup_carla.sh
 ```
 ```
-./carla/CarlaUE4.sh -opengl
+./carla/CarlaUE4.sh -opengl -ResX=160 -ResY=120 -fps=10
 ```
 Evaluate
 ```

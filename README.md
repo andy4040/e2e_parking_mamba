@@ -54,9 +54,11 @@ python pl_train.py
 ```
 ## 4. Dataset & Pretrained Model
 
-Dataset: https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
+Dataset
+https//pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
 
-pretrained model: https://drive.google.com/file/d/1gXtrB8Ub9_6D7LWa1YCOB0HKcJlOZ3Hz/view?usp=drive_link
+pretrained model
+https://drive.google.com/file/d/1gXtrB8Ub9_6D7LWa1YCOB0HKcJlOZ3Hz/view?usp=drive_link
 
 ## 5. 결과
 

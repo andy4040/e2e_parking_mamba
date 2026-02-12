@@ -14,7 +14,7 @@ High-Speed Parallel Processing: 병렬 스캔(Parallel Scan) 기법을 통해 �
 
 
 
-##2. 시스템 아키텍쳐
+## 2. 시스템 아키텍쳐
 
 1. Multi-View Input (4 Surround Images): 전/후/좌/우 4개 카메라 데이터 입력
 
@@ -58,7 +58,7 @@ Dataset
 
 https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
 
-pretrained model
+Pretrained model
 
 https://drive.google.com/file/d/1gXtrB8Ub9_6D7LWa1YCOB0HKcJlOZ3Hz/view?usp=drive_link
 
@@ -68,8 +68,9 @@ NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 �
 
 🏁 주차 성공 판정 기준 
 
+차량의 중심이 주차 칸의 정중앙으로부터 0.5m 이내에 위치
 
-차량의 중심이 주차 칸의 정중앙으로부터 0.5m 이내에 위치해야 하며, 차체가 목표 방향에서 틀어진 각도 오차가 0.5도 미만이어야 한다.
+차체가 목표 방향에서 틀어진 각도 오차: 0.5도 미만
 
 
 <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/296a3b91-9e6a-4e85-86ec-c1ec71a3e834" />

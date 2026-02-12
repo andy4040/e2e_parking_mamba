@@ -1,36 +1,69 @@
 ## 1. 프로젝트 요약
-🚗 Mamba 기반 End-to-End 자율 주차 시스템
-CARLA 시뮬레이터 환경에서 Mamba(State Space Model) 아키텍처를 활용하여 구현한 효율적인 End-to-End 자율 주차 에이전트입니다.
+🚗 Mamba 기반 End-to-End 자율 주차 시스템 
 
-본 프로젝트는 기존의 Transformer 구조보다 연산 효율이 뛰어난 Mamba(Selective State Space Model)를 활용하여 주행 제어 명령을 직접 생성합니다. 복잡한 주차 시나리오에서 센서 데이터를 입력받아 조향(Steering), 가속(Acceleration), 제동(Brake) 값을 실시간으로 예측합니다.
+본 프로젝트는 CARLA 시뮬레이터 환경에서 Transformer의 정밀한 특징 추출과 Mamba(State Space Model)의 효율적인 시퀀스 모델링을 결합한 하이브리드 End-to-End 주차 에이전트입니. 기존 아키텍처에 Mamba 블록을 통합하여, 복잡한 주차 시나리오에서 발생하는 고차원 센서 데이터를 제어 신호로 더욱 정밀하게 정제(Refinement)합니다.
 
-본 모델은 다중 센서 정보를 통합하여 정밀한 주차 제어를 수행하기 위해 다음과 같은 단계별 구조를 가집니다.
+🚀 Key Innovation: Mamba-Driven Context Refinement
+
+기존 모델이 정적인 특징 추출에 그쳤다면, 본 프로젝트는 258차원의 고차원 특징 시퀀스를 Mamba 블록으로 재가공하여 주행 맥락을 극대화했습니다.
+258-Feature Spatial Scanning: 융합된 BEV 특징으로부터 추출된 **258개의 핵심 정보 채널($d_{model}=258$)**을 시퀀스 데이터로 간주하고 정밀 스캔합니다. 이는 주차 칸의 미세한 각도 변화와 장애물과의 거리 관계를 시계열적으로 재해석하여 제어의 연속성을 보장합니다.
+
+Selective Information Filtering (S6): 단순한 특징 전달이 아닌, S6 메커니즘을 통해 258개의 정보 중 현재 제어(Steer, Accel)에 가장 유효한 정보만을 선택적으로 기억하고 노이즈를 억제합니다.
+
+High-Speed Parallel Processing: 병렬 스캔(Parallel Scan) 기법을 통해 시퀀스 길이에 대해 **$O(\log L)$**의 복잡도를 실현, 실시간 제어 환경에서 지연 시간(Latency)을 최소화했습니다.
 
 
-1. Multi-View Input (4 Surround Images): 차량 주변을 감시하는 4개의 카메라(전/후/좌/우)로부터 원시 데이터를 입력받습니다.
 
-2. BEV Feature Extraction: 각 카메라의 2D 이미지를 공간 지각력이 극대화된 BEV(Bird's-Eye View) 특징 맵으로 변환합니다. 이는 주차 칸과의 거리 및 정렬 상태를 파악하는 데 핵심적인 역할을 합니다.
+##2. 시스템 아키텍쳐
 
-3. Feature Fusion: 추출된 각 뷰의 특징들을 하나의 통합된 벡터 공간으로 융합(Fusion)하여 차량 주변 360도 환경을 단일 지표로 재구성합니다.
+1. Multi-View Input (4 Surround Images): 전/후/좌/우 4개 카메라 데이터 입력
 
-4. Mamba Sequence Modeling (Added): 트랜스포머가 융합한 특징 시퀀스를 **Mamba(SSM) 블록**에 입력한다. 이 과정에서 **병렬 스캔(Parallel Scan)** 기법을 사용하여 시퀀스 길이에 대해 O(log L)의 복잡도로 고속 병렬 처리를 수행한다. 특히 S6 설계 시 입력(`B`)과 출력(`C`) 가중치를 공유하는 **simplified S6 구조**를 적용하여 파라미터를 효율화했다. 이는 학습 속도 향상뿐만 아니라, 주행 맥락을 제어 신호로 변환할 때의 **일관성과 안정성**을 극대화하는 핵심 역할을 한다.
+2. BEV Feature Extraction:2D 이미지를 Bird's-Eye View 특징 맵으로 변환
 
-5. Control Prediction: 최종적으로 Mamba의 출력값은 제어 헤드를 거쳐 조향(Steering), 가속(Accel), 제동(Brake) 등의 물리적 제어 신호로 변환됩니다.
+3. Feature Fusion: 차량 상태 및 목표 지점 결합 (Vehicle & Target Point Integration)
+
+4. ✨ Mamba Sequence Modeling (Added): 융합된 258개의 특징 벡터를 입력으로 받아 전역적 맥락을 스캔.Simplified S6 구조 적용: $B$와 $C$ 가중치를 공유하여 파라미터 효율성을 높이고 학습 안정성 확보.단순한 특징 결합을 넘어, 시퀀스 모델링을 통해 '공간적 배치'를 '주행 의도'로 정제하는 핵심 단계.
+
+5. Control Prediction: 조향(Steering), 가속(Accel), 제동(Brake) 신호 생성
 
 <img width="1184" height="660" alt="image" src="https://github.com/user-attachments/assets/450ce9db-2abe-47c0-ac0a-155d77e19d51" />
 
 
 
 
-
-## 2. Requirement
+## 3. Setup
 ```
 carla: 0.9.11
 cuda: 11.7
 python: 3.7
 ```
+```
+git clone https://github.com/qintonguav/e2e-parking-carla.git
+cd e2e-parking-carla/
+conda env create -f environment.yml
+conda activate E2EParking
+chmod +x setup_carla.sh
+./setup_carla.sh
+```
+```
+./carla/CarlaUE4.sh -opengl
+```
+Evaluate
+```
+python3 carla_parking_eva.py
+```
+Training
 
-## 3. 결과
+```
+python pl_train.py 
+```
+## 4. Dataset & Pretrained Model
+
+https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
+
+pretrained model: 
+
+## 5. 결과
 
 NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 진행하였다.
 
@@ -44,16 +77,10 @@ NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 �
 <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />
 
 
-## 4. Dataset
-
-https://pan.baidu.com/s/1PoMSfgZQMnUGlhi7S5fFZw?pwd=2ik6
-
-pretrained model
-
-last.ckpt 구글 드라이브 다운로드
 
 
-## 5. References
+
+## 6. References
 
 본 프로젝트는 아래 논문의 연구 성과를 바탕으로 구현 및 개선되었습니다.
 

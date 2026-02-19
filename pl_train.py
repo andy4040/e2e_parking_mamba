@@ -50,11 +50,23 @@ def train():
                               log_every_n_steps=cfg.log_every_n_steps,
                               check_val_every_n_epoch=cfg.check_val_every_n_epoch,
                               precision=16,
+                              
                               profiler='simple')
 
     parking_model = ParkingTrainingModule(cfg)
     parking_datamodule = ParkingDataModule(cfg)
-    parking_trainer.fit(parking_model, datamodule=parking_datamodule)
+
+    
+    resume_path = "ckpt/last.ckpt"
+    if not os.path.exists(resume_path):
+        print(f"⚠️ 체크포인트를 찾을 수 없습니다: {resume_path}. 처음부터 학습을 시작합니다.")
+        resume_path = None  # None이면 처음부터 시작함
+    parking_trainer.fit(parking_model, datamodule=parking_datamodule, ckpt_path=resume_path)
+    
+
+
+
+    # parking_trainer.fit(parking_model, datamodule=parking_datamodule)
 
 
 if __name__ == '__main__':

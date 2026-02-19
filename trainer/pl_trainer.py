@@ -117,8 +117,31 @@ class ParkingTrainingModule(pl.LightningModule):
         optimizer = torch.optim.Adam(self.parameters(),
                                      lr=self.cfg.learning_rate,
                                      weight_decay=self.cfg.weight_decay)
-        lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer=optimizer, T_max=self.cfg.epochs)
+        # T_max를 현재 설정된 에폭보다 2배 정도 크게 잡으면 반등 없이 계속 내려가기만 합니다.
+        lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer=optimizer, 
+            T_max=self.cfg.epochs * 2, # 에폭의 2배 길이로 설정하여 반등 방지
+            eta_min=1e-9
+        )
         return {"optimizer": optimizer, "lr_scheduler": lr_scheduler}
+    def on_train_start(self):
+        # 1. 옵티마이저 학습률 강제 수정
+        for param_group in self.optimizers().param_groups:
+            param_group['lr'] = self.cfg.learning_rate
+        
+        # 2. 스케줄러 기준 학습률 업데이트 (에러 수정 버전)
+        schedulers = self.lr_schedulers()
+        
+        # 스케줄러가 리스트가 아닐 경우 리스트로 감싸서 처리
+        if not isinstance(schedulers, list):
+            schedulers = [schedulers]
+            
+        for scheduler in schedulers:
+            # scheduler가 None이 아니고 CosineAnnealingLR일 때만 실행
+            if scheduler is not None and hasattr(scheduler, 'base_lrs'):
+                scheduler.base_lrs = [self.cfg.learning_rate for _ in scheduler.base_lrs]
+                
+        print(f"✅ [Adam] 체크포인트 무시 및 하강 곡선 초기화 완료: {self.cfg.learning_rate}")
 
     def log_segmentation(self, pred_segmentation, gt_segmentation, name):
         fig, ax = plt.subplots(1, 2, figsize=(20, 10))

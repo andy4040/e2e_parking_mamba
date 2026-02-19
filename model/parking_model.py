@@ -33,7 +33,7 @@ class ParkingModel(nn.Module):
         y_pixel = (w / 2 + target_point[:, 1] / self.cfg.bev_y_bound[2]).unsqueeze(0).T.int()
         target_point = torch.cat([x_pixel, y_pixel], dim=1)
 
-        noise = (torch.rand_like(target_point, dtype=torch.float) * 4 - 2).int()
+        noise = (torch.rand_like(target_point, dtype=torch.float) * 6 - 3).int()
         target_point += noise
 
         for batch in range(b):
@@ -73,7 +73,7 @@ class ParkingModel(nn.Module):
     def predict(self, data):
         mamba_feature, pred_segmentation, pred_depth, bev_target = self.encoder(data)  # fuse → mamba
         pred_multi_controls = data['gt_control'].cuda()
-        for i in range(3):
+        for i in range(4):
             pred_control = self.control_predict.predict(mamba_feature, pred_multi_controls)  # fuse → mamba
             pred_multi_controls = torch.cat([pred_multi_controls, pred_control], dim=1)
         return pred_multi_controls, pred_segmentation, pred_depth, bev_target

@@ -102,7 +102,7 @@ def main():
         help='path to model training.yaml')
     argparser.add_argument(
         '--eva_epochs',
-        default=1,
+        default=4,
         type=int,
         help='number of eva epochs (default: 4')
     argparser.add_argument(

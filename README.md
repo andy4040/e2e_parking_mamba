@@ -73,7 +73,8 @@ NVIDIA RTX 2080 GPU 환경에서 총 30 Epoch 동안 약 60시간의 학습을 �
 차체가 목표 방향에서 틀어진 각도 오차: 0.5도 미만
 
 
-<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/296a3b91-9e6a-4e85-86ec-c1ec71a3e834" />
+<img width="500" height="350" alt="Screenshot from 2026-02-19 20-59-30" src="https://github.com/user-attachments/assets/4a15a91d-59bb-41a8-a5ed-7ccc07e323d4" />
+
 <img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/b4655293-d00f-4a7c-ac20-5e203925b05b" />
 
 
